@@ -13,8 +13,11 @@ app.use(express.static('./public'));
 app.get('/', (req, res) => {
     res.render("home/index");
 });
+app.get('/articles/create',(req,res)=>{
+    res.render('articles/create')
+})
 app.get('/articles', (req, res) => {
-res.render('articles/index')
+    res.render('articles/index')
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}...`));
