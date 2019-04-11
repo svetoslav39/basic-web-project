@@ -9,8 +9,12 @@ app.engine('hbs', handlebars({
 }));
 app.set('view engine', 'hbs');
 app.use(express.static('./public'));
-app.get('/', function (req, res) {
+
+app.get('/', (req, res) => {
     res.render("home/index");
 });
-app.listen(port,
-    () => console.log(`Listening on port ${port}...`));
+app.get('/articles', (req, res) => {
+res.render('articles/index')
+})
+
+app.listen(port, () => console.log(`Listening on port ${port}...`));
