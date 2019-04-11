@@ -1,6 +1,7 @@
 body {
     margin-bottom: 100px;
 }
+
 .article-list {
     display: flex;
     flex-wrap: wrap;
