@@ -1,7 +1,8 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
 var bodyParser = require('body-parser')
-const port = 3000
+const config = require('./config/config')
+const articlesController = require('./controllers/articles-controler')
 const app = express();
 
 app.engine('hbs', handlebars({
@@ -15,14 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', (req, res) => {
     res.render("home/index");
 });
-app.get('/articles/create', (req, res) => {
-    res.render('articles/create')
-})
-app.get('/articles', (req, res) => {
-    res.render('articles/index')
-})
+app.get('/articles/create', articlesController.getCreate)
+app.get('/articles', articlesController.postCreate)
 app.post('/articles/create', (req, res) => {
     console.log(req.body)
 })
 
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+app.listen(config.port, () => console.log(`Listening on port ${config.port}...`));
