@@ -1,5 +1,12 @@
 const Article = require('../models/article')
 module.exports = {
+    articleIndex: (req, res) => {
+        Article.find({})
+            .then(articles => {
+
+                res.render('articles/index', { articles })
+            })
+    },
     getCreate: (req, res) => {
         res.render('articles/create')
     },
@@ -14,6 +21,5 @@ module.exports = {
 
             res.redirect('/articles')
         })
-
     }
 }
