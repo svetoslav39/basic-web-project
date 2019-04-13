@@ -1,5 +1,5 @@
 const articlesController = require('../controllers/articles-controler')
-
+const authorController = require('../controllers/authors-controler')
 function router(app) {
     app.get('/', (req, res) => {
         res.render("home/index");
@@ -7,5 +7,6 @@ function router(app) {
     app.get('/articles', articlesController.articleIndex)
     app.get('/articles/create', articlesController.getCreate)
     app.post('/articles/create', articlesController.postCreate)
+    app.get('/authors', authorController.index)
 }
 module.exports = router
