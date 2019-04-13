@@ -8,5 +8,6 @@ function router(app) {
     app.get('/articles/create', articlesController.getCreate)
     app.post('/articles/create', articlesController.postCreate)
     app.get('/authors', authorController.index)
+    app.get('/authors/:author/articles', articlesController.getByAuthor)
 }
 module.exports = router

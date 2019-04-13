@@ -21,5 +21,11 @@ module.exports = {
 
             res.redirect('/articles')
         })
+    },
+    getByAuthor:(req,res)=>{
+        Article.find({author: req.params.author})
+        .then((articles)=>{
+            res.render('articles/index', {articles})
+        })
     }
 }
